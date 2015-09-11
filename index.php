@@ -1,3 +1,8 @@
+<?php
+
+if(session_start())
+	echo "New session start successful";
+?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
@@ -17,6 +22,18 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
+
+
+		   	//$_SESSION["username"]=$username/*$_POST["username"]*/;
+			//$_SESSION["password"]=$password/*$_POST["password"]*/;
+
+		   	/*echo "Session Variable username : ".$_SESSION["username"]."<br>";
+			echo "Session Variable password : ".$_SESSION["password"]."<br>";
+			echo "username : ".$username;
+			echo "password : ".$password;
+			echo "Post Username : ".$_POST["username"];
+			echo "Post password : ".$_POST["password"];*/
+
 		   	if (empty($_POST["username"])) 
 		   	{
 				$username_Err = "Username is required";
@@ -54,5 +71,6 @@
 		<button type="submit" name="submit" value="Submit" formmethod="POST" formaction="verify_login_details.php">Login</button>
 	</form>
 
+<!--after method="POST" line 55  ; target="_self"-->
 </body>
 </html>

@@ -1,21 +1,32 @@
+<?php
+
+if(session_start())
+	echo "New session start successful";
+?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
 <body>
 	<?php
+
 		require_once'db_connect.php';
-	
-		echo "<br> Username provided is ".$_POST["username"]."<br>";
 		$username=$_POST["username"];
-		$password=$_POST["password"];
+		
+		$_SESSION["username"]=$_POST["username"];
+		$_SESSION["password"]=$_POST["password"];
+
+		echo "<br> Username provided for session is ".$_SESSION["username"]/*$_POST["username"]*/."<br>";
+		echo "<br> Username provided is ". $username /*$_POST["username"]*/."<br>";
+		//$username=$_POST["username"];
+		//$password=$_POST["password"];
 
 		//#1
 		
 		
-		try 
+		/*try 
 		{	
 			//#5
-
+			
 		    $sql="SELECT password FROM users where username = '$username'";
 			$q=$connect->prepare($sql);
 			$q1=$q->execute();
@@ -24,22 +35,24 @@
 			$q2=$q->fetch(PDO::FETCH_ASSOC);
 			$db_password=$q2['password'];
 			echo "<br>" . $db_password;
+			
 			} 
 		catch (PDOException $e) 
 		{
 			echo "Connection failed: " . $e->getMessage();
 		}
 			
-		if ($db_password===$password) : ?>
+		if ($db_password===$password) : 
+			$_SESSION["login"]=0; ?>
 			<script type="text/javascript">
 			window.location = "home_page.php";
 			</script>
-	<?php else : ?>
-			<?php echo "incorrect password";/*insert script for delay in reloading webpage*/ ?>
+	<?php else : 
+			$_SESSION["login"]=0; ?>
 			<script type="text/javascript">
 			window.location = "sign_up.php";
 			</script>
-	<?php endif;
+	<?php endif;*/
 	
 	//#2
 

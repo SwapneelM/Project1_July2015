@@ -1,3 +1,8 @@
+<?php
+
+if(session_start())
+	echo "New session start successful";
+?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
@@ -5,7 +10,7 @@
 	<?php
 
 		require_once'db_connect.php';
-
+		if($_SESSION["login"]==0;)
 		$username=$password=$mobile_no=$name=$email="";
 		$username_Err=$password_Err=$mobile_no_Err=$name_Err=$email_Err="";
 		
