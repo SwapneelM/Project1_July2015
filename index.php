@@ -1,7 +1,8 @@
 <?php
-
-if(session_start())
+	session_start();
 	echo "New session start successful";
+	echo "<br>".session_id()."<br>";
+	$_SESSION["db_name"]="user_list";
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,16 +24,7 @@ if(session_start())
 	if ($_SERVER["REQUEST_METHOD"] == "POST") 
 	{
 
-
-		   	//$_SESSION["username"]=$username/*$_POST["username"]*/;
-			//$_SESSION["password"]=$password/*$_POST["password"]*/;
-
-		   	/*echo "Session Variable username : ".$_SESSION["username"]."<br>";
-			echo "Session Variable password : ".$_SESSION["password"]."<br>";
-			echo "username : ".$username;
-			echo "password : ".$password;
-			echo "Post Username : ".$_POST["username"];
-			echo "Post password : ".$_POST["password"];*/
+		   	//#noideawhatnumber
 
 		   	if (empty($_POST["username"])) 
 		   	{
@@ -56,21 +48,33 @@ if(session_start())
 		   	{
 		     	$password=$_POST["password"];
 			}
+	
+
+		if($username_Err==""&&$password_Err!="")
+			echo "Incorrect Password";
+		if($username_Err!=""&&$password_Err=="") 
+			echo "Please reenter valid username";
+		if($username_Err==""&&$password_Err=="") :
+			$_SESSION["username"]=$username;
+			$_SESSION["password"]=$password;
+?>
+			<script type="text/javascript">
+				window.location = "verify_login_details.php";
+			</script> 
+<?php endif; 
 	}
 ?>
-
 
 <h2>Login</h2>
 
 	<form name="login_details" method="POST" target="_self" action="index.php" onsubmit="document.getElementById('submit_button').disabled = 1;">
 		<p><br>Username:
-		<input type="text" name="username" placeholder="Enter your Username"></input></p><?php echo $username_Err;?>
+		<input type="text" name="username" placeholder="Enter your Username"></input>&nbsp;<?php echo $username_Err;?></p>
 		<p><br>Password:
-		<input type="password" name="password" placeholder="Enter your Password"></input><br></p><?php echo $password_Err;?>
+		<input type="password" name="password" placeholder="Enter your Password"></input>&nbsp;<?php echo $password_Err;?></p>
 
-		<button type="submit" name="submit" value="Submit" formmethod="POST" formaction="verify_login_details.php">Login</button>
+		<button type="submit" name="submit" value="Submit" formmethod="POST" formaction="index.php">Login</button>
 	</form>
 
-<!--after method="POST" line 55  ; target="_self"-->
 </body>
 </html>

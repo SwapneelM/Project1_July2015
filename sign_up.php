@@ -1,16 +1,15 @@
 <?php
-
-if(session_start())
-	echo "New session start successful";
+	session_start();
+	echo session_id()."<br>";
 ?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
 <body>
 	<?php
-
 		require_once'db_connect.php';
-		if($_SESSION["login"]==0;)
+		//if($_SESSION["login"]==0)
+		echo $_SESSION["message"]."<br>";
 		$username=$password=$mobile_no=$name=$email="";
 		$username_Err=$password_Err=$mobile_no_Err=$name_Err=$email_Err="";
 		
@@ -136,13 +135,13 @@ if(session_start())
 					} 
 				catch (PDOException $e) 
 				{
-					echo "Connection failed: " . $e->getMessage();
+					echo "<br>"."Connection failed: " . $e->getMessage();
 				}
 			}
 					else
 					{
-						echo "<br> EMAIL ERR" . $email_Err . "???<br>";
-						echo "<b>Unable to process details.<br>";
+						echo "<br> Invalid Email format. " . $email_Err . "<br>";
+						echo "<br> Unable to process details.<br>";
 					}
 		}
 	?>

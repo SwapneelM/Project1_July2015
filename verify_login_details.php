@@ -1,29 +1,25 @@
 <?php
-
-if(session_start())
-	echo "New session start successful";
+	session_start();
+	echo session_id()."<br>";
 ?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
 <body>
 	<?php
-
-		require_once'db_connect.php';
-		$username=$_POST["username"];
 		
-		$_SESSION["username"]=$_POST["username"];
-		$_SESSION["password"]=$_POST["password"];
+		require_once'db_connect.php';
 
-		echo "<br> Username provided for session is ".$_SESSION["username"]/*$_POST["username"]*/."<br>";
-		echo "<br> Username provided is ". $username /*$_POST["username"]*/."<br>";
-		//$username=$_POST["username"];
-		//$password=$_POST["password"];
+		$username=$_SESSION["username"];
+		$password=$_SESSION["password"];
+		
+		echo "<br> Username provided is ". $username ."<br>";
+		
 
 		//#1
 		
 		
-		/*try 
+		try 
 		{	
 			//#5
 			
@@ -43,16 +39,20 @@ if(session_start())
 		}
 			
 		if ($db_password===$password) : 
-			$_SESSION["login"]=0; ?>
+			//$_SESSION["login"]=1; 
+			$_SESSION["message"]="Logged in successfully";
+			?>
 			<script type="text/javascript">
 			window.location = "home_page.php";
 			</script>
 	<?php else : 
-			$_SESSION["login"]=0; ?>
+			//$_SESSION["login"]=0; 
+			$_SESSION["message"]="Unsuccessful Login";
+			?>
 			<script type="text/javascript">
 			window.location = "sign_up.php";
 			</script>
-	<?php endif;*/
+	<?php endif;
 	
 	//#2
 
