@@ -109,14 +109,16 @@
 		{
 			if($username_Err==""&&$password_Err==""&&$name_Err=="")//&&$email_Err="")
 			{
-				
+				$ip_add=$_SERVER['REMOTE_ADDR'];
 				echo "<br>Creating user " . $name . "<br>";
-				$stmt = $connect->prepare("INSERT INTO users (name, username, password, email, mob_no) VALUES (:name, :username, :password, :email, :mobile_no)");
+				$stmt = $connect->prepare("INSERT INTO users (name, username, password, email, mob_no, ip_address) VALUES (:name, :username, :password, :email, :mobile_no, :ip_add)");
 				$stmt->bindParam(':name', $name);
 				$stmt->bindParam(':username', $username);
 				$stmt->bindParam(':password', $password);
 				$stmt->bindParam(':email', $email);
 				$stmt->bindParam(':mobile_no', $mobile_no);
+				$stmt->bindParam(':ip_add', $ip_add);
+
 				
 				$stmt->execute();
 				echo "<b> Registration Successful</b><br>";

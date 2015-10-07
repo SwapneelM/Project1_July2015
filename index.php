@@ -2,6 +2,11 @@
 	session_start();
 	echo "New session start successful";
 	echo "<br>".session_id()."<br>";
+	echo "<br>".$_SERVER['REMOTE_ADDR']."<br>";
+	if (isset($_SESSION["attempt"])) 
+	{
+		echo "<br>". "Login attempt " . $_SESSION["attempt"] ."<br>";
+	}
 	$_SESSION["db_name"]="user_list";
 ?>
 <!DOCTYPE html>
@@ -53,14 +58,14 @@
 		if($username_Err==""&&$password_Err!="")
 			echo "Incorrect Password";
 		if($username_Err!=""&&$password_Err=="") 
-			echo "Please reenter valid username";
+			echo "Please enter valid username";
 		if($username_Err==""&&$password_Err=="") :
-			$_SESSION["username"]=$username;
-			$_SESSION["password"]=$password;
+				$_SESSION["username"]=$username;
+				$_SESSION["password"]=$password;
 ?>
-			<script type="text/javascript">
-				window.location = "verify_login_details.php";
-			</script> 
+				<script type="text/javascript">
+						window.location = "verify_login_details.php";
+				</script>
 <?php endif; 
 	}
 ?>

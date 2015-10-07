@@ -9,7 +9,7 @@
 
 
 	<?php 
-		echo $_SESSION["message"]."<br>";
+		//echo $_SESSION["message"]."<br>";
 		echo "Hey ".$_SESSION["username"].", you have reached the home page";
 	?>
 

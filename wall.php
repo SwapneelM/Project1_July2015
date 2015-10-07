@@ -6,6 +6,7 @@
 
 	try 
 			{	
+				$id=$_SESSION["id"];
 				$_SESSION["db_name"]="post_list";
 				include('db_connect.php');
 				 
