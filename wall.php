@@ -10,7 +10,7 @@
 				$_SESSION["db_name"]="post_list";
 				include('db_connect.php');
 				 
-			   		$sql="SELECT content FROM posts where id = '$id' ORDER by 'postnumber'";
+			   		$sql="SELECT content FROM posts where id = '$id' ORDER by 'postnumber' DESC";
 					$q=$connect->prepare($sql);
 					$q1=$q->execute();
 					$result=$q->rowCount();
