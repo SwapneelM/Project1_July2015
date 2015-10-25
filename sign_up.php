@@ -1,15 +1,21 @@
 <?php
 	session_start();
-	echo session_id()."<br>";
 ?>
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
 <body>
+	<div class="container">
+
 	<?php
 		require_once'db_connect.php';
 		//if($_SESSION["login"]==0)
-		echo $_SESSION["message"]."<br>";
+		//echo $_SESSION["message"]."<br>";
 		$username=$password=$mobile_no=$name=$email="";
 		$username_Err=$password_Err=$mobile_no_Err=$name_Err=$email_Err="";
 		
@@ -147,6 +153,6 @@
 					}
 		}
 	?>
-
+	</div>
 </body>
 </html>

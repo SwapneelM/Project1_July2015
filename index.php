@@ -1,29 +1,5 @@
-<?php
-	session_start();
-	echo "New session start successful";
-	echo "<br>".session_id()."<br>";
-	echo "<br>".$_SERVER['REMOTE_ADDR']."<br>";
-	if (isset($_SESSION["attempt_count"])) 
-	{
-		echo "<br>". "Login attempt " . $_SESSION["attempt_count"] ."<br>";
-	}
-	$_SESSION["db_name"]="user_list";
-
-	$ip_add=$_SERVER['REMOTE_ADDR'];
-	require_once'db_connect.php';
-	$sql="SELECT blacklisted FROM login_attempts where ip_address = '$ip_add'";
-	$q=$connect->prepare($sql);
-	$q1=$q->execute();
-	$result=$q->rowCount();
-	//echo "<br>"."Number of rows in result of login attempt query : " . $result . "<br>";
-	$q2=$q->fetch(PDO::FETCH_ASSOC);
-	$_SESSION["blacklisted"]=$q2['blacklisted'];
-	if($_SESSION["blacklisted"]!=NULL)
-		$_SESSION["blacklisted"]=true;
-
-	echo "<br>" . $_SESSION["blacklisted"] . "<br>";
-	if($_SESSION["blacklisted"])
-		header("Location: err.php?e=404");
+<?php 
+include('verify_blacklisted.php');
 ?>
 	<!--<script type="text/javascript">
 		window.location = "error_404.php";	
@@ -32,7 +8,14 @@
 <!DOCTYPE html>
 <html>
 <head><title></title></head>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+
 <body>
+	<div class="container">
 <?php
 	$username=$password="";
 	$username_Err=$password_Err="";
@@ -100,6 +83,8 @@
 
 		<button type="submit" name="submit" value="Submit" formmethod="POST" formaction="index.php">Login</button>
 	</form>
+	
+	</div>
 
 </body>
 </html>

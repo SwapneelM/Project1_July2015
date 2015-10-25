@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head><title></title></head>
-<body>
+<body>-->
 	
 
 	<?php
@@ -78,5 +78,5 @@
 			window.location = "index.php";
 			</script>
 	<?php ?>
-	</body>
-</html>
+	<!--</body>
+</html>-->

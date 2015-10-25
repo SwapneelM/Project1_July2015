@@ -1,0 +1,221 @@
+
+
+#1
+		//$_SESSION["username"]=$_POST["username"];
+		//$_SESSION["password"]=$_POST["password"];
+
+		//echo "<br> Username provided for session is ".$_SESSION["username"]/*$_POST["username"]*/."<br>";
+		/*$_POST["username"]*/
+		//$username=$_POST["username"];
+		//$password=$_POST["password"];
+
+
+	/*$result=mysql_query("SELECT password FROM users where username = '$username'");
+	$result1=mysql_($result);
+	print_r($result1['password']);*/
+
+#2
+
+	/*if($q==true){echo"Query q not failed<br>";}
+
+	$q1=$q->execute();
+
+	if($q1==true){echo"Query q1 not failed<br>";}
+
+	$q1->mysql_fetch_assoc("SELECT password FROM users where username = '$username'");*/
+	/*if(!$q){echo"Query q failed";}
+	$q1=$q->execute();
+	if(!$q1){echo"Query q1 failed";}
+	$q2=$q1->fetch(PDO::FETCH_ASSOC);
+	
+	try
+	{
+		$q1=$q->execute();
+		$q2=$q1->setFetchMode(PDO::FETCH_ASSOC);
+		$q3=$q2->fetch();
+		$db_password=$q3['password'];
+	}
+	catch (PDOException $pe) 
+	{
+ 		die("Could not connect to the database $db_name :" . $pe->getMessage());
+	}
+	echo $db_password;*/
+
+
+
+#3
+
+	/*$host_name="localhost";
+		$db_name="user_list";
+		$db_username="";
+		$db_pass="";
+
+		$username="me";
+		$connect=mysql_connect($host_name,$db_username,$db_pass) or die("Could not connect to database");
+		$db_connect=mysql_select_db($db_name,$connect);
+		if($db_connect){echo "Connected to database $db_name";}
+		$result=mysql_query('SELECT password,id,username FROM users where username=$username') or die("Error");
+		*/
+		/*if($result)
+			{ echo "false";}
+		else
+			{echo "true";}*/
+			//echo "<br>Name".$result_data['id'];
+		/*$result1=mysql_num_rows($result);
+		while($rows=$result1) {
+			$array[]=$rows;
+			echo "<tr><td>".$array['id']. "</td><td>".$array['name']."</td><td>".$array['username']."</td><td>".$array['password']."</td><td>";
+		}*/
+
+		
+#4
+
+<!--<form>
+		<table>
+			<tr>
+				<td>Name:    		</td><td><input></input></td>
+			</tr>
+			<tr>
+				<td>Date of Birth:     	</td><td><input></input></td>
+			</tr>
+			<tr>
+				<td>Create a Username:  </td><td><input></input></td>
+			</tr>
+			<tr>
+				<td>Create a Password:  </td><td><input></input></td>
+			</tr>
+			<tr>
+				<td>Mobile Number: 		</td><td><input></input></td>
+			</tr>
+		</table>
+	</form>-->
+		
+
+#5
+
+	//Start of db_connect.php
+			/*$server_name = "localhost";
+			$server_username = "root";
+			$server_password = "";
+			$db_name="user_list";
+
+		    $connect = new PDO("mysql:host=$server_name;dbname=$db_name", $server_username, $server_password);
+		    	
+		    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		    echo "Connected successfully";*/ 
+	//End of db_connect.php	
+
+#6
+	<!--<?php/*
+		if ($username_Err!="")
+		{
+			$page = $_SERVER['PHP_SELF'];
+			$sec = "10";
+			header("Refresh: $sec; url=$page");
+		}*/
+	?>-->		
+
+#7
+
+	//$_SESSION["username"]=$username/*$_POST["username"]*/;
+			//$_SESSION["password"]=$password/*$_POST["password"]*/;
+
+		   	/*echo "Session Variable username : ".$_SESSION["username"]."<br>";
+			echo "Session Variable password : ".$_SESSION["password"]."<br>";
+			echo "username : ".$username;
+			echo "password : ".$password;
+			echo "Post Username : ".$_POST["username"];
+			echo "Post password : ".$_POST["password"];*/
+
+#8
+	<ul style="list-style-type:none;margin:10px;padding:20px;">
+	      	<!--<div class="colspan-3">-->
+	      		<li><a class="nav-link colspan-3" href="/Project1_July2015/home_page.php">Home</a></li>
+	      	<!--</div>-->
+
+			<!--<div class="colspan-3 inline">-->
+				<li><form class="search" name="search_form"  onsubmit="document.getElementById('submit_button').disabled = 1;">
+				<input name="search_term" type="text" placeholder="Search"></input>
+				<button name="search" type="submit" value="Submit" formmethod="GET" formtarget="_self" formaction="search_results.php">Go</button>
+				</form></li>
+			<!--</div>-->
+
+			<!--<div class="nav-link colspan-3">-->
+				<li><a href="/Project1_July2015/wall.php"><?php echo "<br>" . $_SESSION["name"];?>'s Wall</a></li>
+			<!--</div>-->
+		</ul>
+		<ul class="colspan-3" style="list-style-type:none;margin:10px;padding:20px;float:right;">
+			<!--<div>-->
+				<a href="logout.php">Logout</a>
+			<!--<div>-->
+		</ul>
+
+<nav class="container-fluid" style="width:100%;position:fixed;">
+	<div class="navbar navbar-inverse">
+	    <div class="navbar-nav">
+	      	<div>
+	      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_main" aria-expanded="false" style="float:right;">
+        		<span class="sr-only">Toggle navigation</span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a style="position:absolute;left:15px;margin-top:10px;width=20px" href="/Project1_July2015/home_page.php">Home</a>
+    		</div>
+    	<div class="collapse navbar-collapse" id="#navbar_main">
+    		<ul class="navbar-nav" style="margin-top:-20px;">
+
+			<li><div style="position:absolute;left:420px;float:left;margin-top:10px;width=80px;">
+				<form class="search" name="search_form"  onsubmit="document.getElementById('submit_button').disabled = 1;">
+				<input name="search_term" type="text" placeholder="Search"></input>
+				<button name="search" type="submit" value="Submit" formmethod="GET" formtarget="_self" formaction="search_results.php">Go</button>
+				</form>
+			</div></li>
+
+			<li><div style="position:absolute;margin-top:-10px;left:80px;">
+				<a href="/Project1_July2015/wall.php"><?php echo "<br>" . $_SESSION["name"];?>'s Wall</a>
+			</div></li>
+		
+			<li><div style="position:absolute;margin-top:10px;right:20px;">
+				<a href="logout.php">Logout</a>
+			</div></li>
+			</ul>
+		</div>
+		</div>
+	</div>
+</nav>
+
+<nav  class="navbar navbar-inverse">
+	<div class="container-fluid">
+	    <div class="navbar-header">
+	      
+	      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar_main" aria-expanded="false" style="float:right;">
+        		<span class="sr-only">Toggle navigation</span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+        		<span class="icon-bar"></span>
+      		</button>
+      		<a href="/Project1_July2015/home_page.php">Home</a>
+    		
+    	<div class="collapse navbar-collapse" id="#navbar_main">
+    		<ul class="nav navbar-nav" style="position:relative;" >
+
+			<li>
+				<form class="search" name="search_form"  onsubmit="document.getElementById('submit_button').disabled = 1;">
+				<input name="search_term" type="text" placeholder="Search"></input>
+				<button class="search" name="search" type="submit" value="Submit" formmethod="GET" formtarget="_self" formaction="search_results.php">Go</button>
+				</form>
+			</li>
+
+			<li>
+				<a href="/Project1_July2015/wall.php"><?php echo "<br>" . $_SESSION["name"];?>'s Wall</a>
+			</li>
+		
+			<li>
+				<a href="logout.php">Logout</a>
+			</li>
+			</ul>
+		</div>
+		</div>
+	</div>
+</nav>

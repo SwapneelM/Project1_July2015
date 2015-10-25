@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	echo session_id()."<br>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +12,7 @@
 		$username=$_SESSION["username"];
 		$password=$_SESSION["password"];
 		
-		echo "<br> Username provided is ". $username ."<br>";
+		//echo "<br> Username provided is ". $username ."<br>";
 		
 
 		//#1
@@ -24,13 +23,15 @@
 			//#5
 
 			
-		    $sql="SELECT password FROM users where username = '$username'";
+		    $sql="SELECT * FROM users where username = '$username'";
 			$q=$connect->prepare($sql);
 			$q1=$q->execute();
 			$result=$q->rowCount();
 			echo "<br>Number of rows in result of password query : " . $result;
 			$q2=$q->fetch(PDO::FETCH_ASSOC);
 			$db_password=$q2['password'];
+			$_SESSION["name"]=$q2['name'];
+			$_SESSION["id"]=$q2['id'];
 			echo "<br>" . $db_password;
 			
 			} 
@@ -41,9 +42,14 @@
 			
 		if ($db_password===$password) : 
 			//$_SESSION["login"]=1; 
-			$_SESSION["message"]="Logged in successfully";
+			//$_SESSION["message"]="Logged in successfully";
+			$_SESSION["logged_in"]=true;
 			$password_Err="";
 			$_SESSION["attempt_count"]=0;
+			
+			//echo "<br>" . "Database retrieved name : " . $name;
+			//echo "<br>" . "Database retrieved id : " . $id;
+
 			?>
 			
 
@@ -59,7 +65,7 @@
 	<?php else :
 				
 				include ('login_limiter.php');
-				$_SESSION["message"]="Unable to login"; 
+				//$_SESSION["message"]="Unable to login"; 
 				$password_Err="Incorrect Password";
 			
 			endif; ?>	
