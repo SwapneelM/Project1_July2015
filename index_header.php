@@ -12,16 +12,16 @@
 
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
+	<nav class='navbar navbar-inverse navbar-fixed-top'>
+		<div class='container-fluid'>
 
-			<div class="navbar-brand">
-				<a href="#">Udaipur Talents</a>
+			<div class='navbar-brand'>
+				<a href="index.php">Udaipur Talents</a>
 			</div>
 
-			<div style="float:right">
-				<ul class="nav navbar-nav">
-					<li><a href="sign_up.php">sdds</a></li>
+			<div style="float:right;">
+				<ul class='nav navbar-nav'>
+					<li><a href="sign_up.php">Sign Up</a></li>
 				<ul>
 			</div>
 		</div>

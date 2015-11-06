@@ -90,7 +90,6 @@
 			<li><div style="position:absolute;margin-top:-10px;left:80px;">
 				<a href="/Project1_July2015/wall.php"><?php echo "<br>" . $_SESSION["name"];?>'s Wall</a>
 			</div></li>
-		
 			<li><div style="position:absolute;margin-top:10px;right:20px;">
 				<a href="logout.php">Logout</a>
 			</div></li>

@@ -219,3 +219,23 @@
 		</div>
 	</div>
 </nav>
+
+//9
+
+<form name="sign_up_details" onsubmit="document.getElementById('submit').disabled = 1;">
+				<p><sup>&nbsp;*&nbsp;</sup>denotes required fields</p>
+				<p>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" placeholder="Enter your name"></input><sup>&nbsp;*</sup><?php echo $name_Err;?></p>
+
+				<p>Username:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="username" placeholder="Choose your username"></input><sup>&nbsp;*</sup><?php echo $username_Err;?></p>
+				
+				<p>Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="password" placeholder="Choose your password"></input><sup>&nbsp;*</sup><?php echo $password_Err;?></p>
+				
+				<!--<p>Date of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input></input></p>-->
+				
+				<p>Mobile Number:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="mobile_no" placeholder="Enter your mobile no."></input></p><!--<?php echo $mobile_no_Err;?>-->
+
+				<p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="email" placeholder="Enter email address"></input><sup>&nbsp;*</sup><?php echo $email_Err;?></p>
+
+				<p><input type="submit" name="submit" value="Submit" formmethod="POST" formaction="sign_up.php"></input>
+
+			</form>

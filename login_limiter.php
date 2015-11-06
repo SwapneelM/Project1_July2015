@@ -23,18 +23,16 @@
 					echo "<br>" . "Login attempt ". $_SESSION["attempt_count"] . "<br>";
 						
 				
-					try
-					{	
-						if(!isset($_SESSION["attempt_count"]))
-							$_SESSION["attempt_count"]=1;
-						if($result==0)
-						{
+					try {	
+						if(!isset($_SESSION["attempt_count"])) {
+							$_SESSION["attempt_count"]=1;	
+						}
+						
+						if($result==0) {
 							$sql="INSERT INTO login_attempts (ip_address, attempts) VALUES (:ip_add, :attempt)";
 							$stmt = $connect->prepare($sql);
 							$stmt->bindParam(':ip_add', $ip_add);
-						}
-						else
-						{
+						} else {
 							$sql="UPDATE login_attempts SET attempts = :attempt WHERE ip_address = '$ip_add'";
 							$stmt = $connect->prepare($sql);
 						}
@@ -43,22 +41,16 @@
 						$stmt->execute();
 
 						echo "<br><b> Login attempt table link Successful Login attempts = ". $_SESSION["attempt_count"] . "</b><br>";
-					}
-					catch(PDOException $f)
-					{
+					} catch(PDOException $f) {
 						echo "<br>"."Connection failed: " . $f->getMessage();
 					}	
-			} 
-			catch (PDOException $e) 
-			{
+			} catch (PDOException $e)  {
 				echo "<br>"."Connection failed: " . $e->getMessage();
 			}
 
 			if($_SESSION["attempt_count"]>2)
-			if($_SESSION["attempt_count"]>=4) 
-			{
-				try
-				{
+			if($_SESSION["attempt_count"]>=4) {
+				try {
 					$blacklist=true;
 
 					$sql="UPDATE login_attempts SET blacklisted = :blacklist WHERE ip_address = '$ip_add'";					
@@ -67,9 +59,7 @@
 					$stmt->execute();
 
 					echo "<br><b> Login attempt table link Successful Login attempts = ". $_SESSION["attempt_count"] . "</b><br>";
-				}
-				catch(PDOException $f)
-				{
+				} catch(PDOException $f) {
 					echo "<br>"."Connection failed: " . $f->getMessage();
 				}	
 			}

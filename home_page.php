@@ -59,11 +59,9 @@
 		<div>
 	<?php 
 
-		if ($_SERVER["REQUEST_METHOD"] == "POST")
-		{	//echo "<br>" . $_POST["status_update"] . "<br>";
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {	//echo "<br>" . $_POST["status_update"] . "<br>";
 
-			try 
-			{	
+			try {	
 				$_SESSION["db_name"]="post_list";
 				include('db_connect.php');
 				 
@@ -72,20 +70,17 @@
 					$stmt->bindParam(':id', $id);
 				$stmt->execute();
 				
-			} 
-			catch (PDOException $e) 
-			{
+			} catch (PDOException $e) {
 				echo "<br>"."Connection failed: " . $e->getMessage();
 			}
 			
 		}
 
-		try 
-			{	
+		try {	
 				$_SESSION["db_name"]="post_list";
 				include('db_connect.php');
 				 
-			   		$sql="SELECT content FROM posts ORDER BY time DESC";
+			   		$sql="SELECT content FROM posts ORDER BY timestamp DESC";
 					$q=$connect->prepare($sql);
 					$q1=$q->execute();
 					$result=$q->rowCount();
@@ -99,9 +94,7 @@
 						?>
 					</div>	
 			<?php
-			} 
-			catch (PDOException $e) 
-			{
+			} catch (PDOException $e) {
 				echo "<br>"."Connection failed: " . $e->getMessage();
 			}
 	?>

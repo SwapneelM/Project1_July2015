@@ -13,9 +13,10 @@ include('verify_blacklisted.php');
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
+<?php include('index_header.php');?>
 
 <body>
-	<div class="container">
+	
 <?php
 	$username=$password="";
 	$username_Err=$password_Err="";
@@ -72,19 +73,26 @@ include('verify_blacklisted.php');
 <?php endif; //above <script> can be replaced by => require_once'verify_login_details.php'; //check which is faster to load
 	}
 ?>
+	<div class="container-fluid">
+		<div class="col-md-4"></div>	
+			<div class="col-md-6">	
+				
 
-<h2>Login</h2>
-
-	<form name="login_details" method="POST" target="_self" action="index.php" onsubmit="document.getElementById('submit_button').disabled = 1;">
-		<p><br>Username:
-		<input type="text" name="username" placeholder="Enter your Username"></input>&nbsp;<?php echo $username_Err;?></p>
-		<p><br>Password:
-		<input type="password" name="password" placeholder="Enter your Password"></input>&nbsp;<?php echo $password_Err;?></p>
-
-		<button type="submit" name="submit" value="Submit" formmethod="POST" formaction="index.php">Login</button>
-	</form>
-	
+				<form class="form-horizontal" name="login_details" method="POST" target="_self" action="index.php" onsubmit="document.getElementById('submit_button').disabled = 1;">
+					<div class="form-group">
+						<div class="row"><div class=" col-md-6"><center><h2>Share your talent now!</h2></center></div></div><br>
+						<div class="row"><!--<div class="col-md-2"><label for="username">Username:</label></div>-->
+						<div class=" col-md-6"><input class="form-control" type="text" name="username" placeholder="Enter your Username"></input><div class="pull-right"><span style="color:red;"><?php echo $username_Err;?></span></div></div>
+						</div><br>
+						<div class="row"><!--<div class="col-md-2"><label for="password">Password:</label></div>-->
+						<div class=" col-md-6"><input class="form-control" type="password" name="password" placeholder="Enter your Password"></input><div class="pull-right"><span style="color:red;"><?php echo $password_Err;?></span></div></div>
+						</div><br>
+						<!--id="submit_button" label to be added-->
+						<div class="row col-md-6"><center><button class="btn btn-default" type="submit" name="submit" value="Submit" formmethod="POST" formaction="index.php">Login</button></center></div>
+					</div>
+				</form>
+			</div>
+		<div class="col-md-2"></div>
 	</div>
-
 </body>
 </html>
